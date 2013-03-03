@@ -10,16 +10,37 @@ class PageController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('BloggerBlogBundle:Page:index.html.twig');
+        //return $this->render('BloggerBlogBundle:Page:index.html.twig');
+        
+        $em = $this->getDoctrine()
+                   ->getManager();
+
+//Se mueve el codigo a BlogRepository, al no ser este su mejor lugar, razones:
+//-Nos gustaría volver a utilizar la consulta en otras partes de la aplicación, sin necesidad de duplicar el código del QueryBuilder.
+//-Si duplicamos el código del QueryBuilder, tendríamos que hacer varias modificaciones en el futuro si fuera necesario cambiar la consulta.
+//-La separación de la consulta y el controlador nos permitirá probar la consulta de forma independiente del controlador.
+//Doctrine 2 proporciona las clases Repositorio para facilitarnos esta tarea.
+//              
+//        $blogs = $em->createQueryBuilder()
+//                    ->select('b')
+//                    ->from('BloggerBlogBundle:Blog',  'b')
+//                    ->addOrderBy('b.created', 'DESC')
+//                    ->getQuery()
+//                    ->getResult();
+        $blogs = $em->getRepository('BloggerBlogBundle:Blog')
+                    ->getLatestBlogs(3);        
+
+        return $this->render('BloggerBlogBundle:Page:index.html.twig'
+                            , array('blogs' => $blogs));        
     }
+    
     public function aboutAction()
     {
         return $this->render('BloggerBlogBundle:Page:about.html.twig');
-    }    
+    }
+    
     public function contactAction()
-    {
-        //return $this->render('BloggerBlogBundle:Page:contact.html.twig');
-        
+    {        
         $enquiry = new Enquiry();
         $form = $this->createForm(new EnquiryType(), $enquiry);
         //$form = $this->get('form.factory')->create(new EnquiryType(),array());
