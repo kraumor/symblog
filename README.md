@@ -5,9 +5,11 @@ Creando un blog en Symfony2
 
 Introducción
 
-Esta guía te llevara a través del proceso en la creación de un sitio web completo caracterizado para blog usando Symfony2. Utilizaremos la Edición estándar de Symfony2, la cual incluye los principales componentes necesarios en la construcción de tu propio sitio web. La guía está dividida en varias partes, cada parte cubre diferentes aspectos de Symfony2 y sus componentes. Está destinada a trabajarse de la misma manera que su símil Jobeet de Symfony 1.
+Proceso de creación de un sitio web completo caracterizado para blog usando Symfony2.
+Se utiliza la Edición estándar de Symfony2, la cual incluye los principales componentes necesarios en la construcción del sitio web.
+Se divide el proceso de creacion en varias partes.
 
-Partes de la guía
+Partes:
 
 [Parte 1] — Configurando Symfony2 y sus plantillas
 [Parte 2] — Página de contacto: Validadores, formularios y correo electrónico
