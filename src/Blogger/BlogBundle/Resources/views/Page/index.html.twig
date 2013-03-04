@@ -15,10 +15,10 @@
             </div>
 
             <footer class="meta">
-                <p>Comentarios: -</p>
+                <p>Comentarios: <a href="{{ path('BloggerBlogBundle_blog_show', { 'id': blog.id }) }}#comments">{{ blog.comments|length }}</a></p>
                 <p>Publicado por <span class="highlight">{{blog.author}}</span> a las {{ blog.created|date('h:iA') }}</p>
                 <p>Etiquetas: <span class="highlight">{{ blog.tags }}</span></p>
-            </footer>
+            </footer>         
         </article>
     {% else %}
         <p>Ninguna entrada de blog.</p>

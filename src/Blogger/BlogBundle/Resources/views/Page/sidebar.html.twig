@@ -1,0 +1,12 @@
+<section class="section">
+    <header>
+        <h3>Nube de etiquetas</h3>
+    </header>
+    <p class="tags">
+        {% for tag, weight in tags %}
+            <span class="weight-{{ weight }}">{{ tag }}</span>
+        {% else %}
+            <p>Ninguna etiqueta</p>
+        {% endfor %}
+    </p>
+</section>
