@@ -28,7 +28,7 @@ class PageController extends Controller
 //                    ->getQuery()
 //                    ->getResult();
         $blogs = $em->getRepository('BloggerBlogBundle:Blog')
-                    ->getLatestBlogs(3);        
+                    ->getLatestBlogs(5);        
 
         return $this->render('BloggerBlogBundle:Page:index.html.twig'
                             , array('blogs' => $blogs));        

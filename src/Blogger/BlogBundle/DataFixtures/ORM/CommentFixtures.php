@@ -32,16 +32,17 @@ class CommentFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         $comment = new Comment();
         $comment->setUser('Kate');
-        $comment->setComment('Are you challenging me? ');
+        $comment->setComment('Are you challenging me? bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.');
         $comment->setBlog($manager->merge($this->getReference('blog-2')));
         $comment->setCreated(new \DateTime("2011-07-23 06:15:20"));
         $manager->persist($comment);
 
         $comment = new Comment();
         $comment->setUser('Dade');
-        $comment->setComment('Name your stakes.');
+        $comment->setComment('Name your stakes.COMENTARIO INADECUADO');
         $comment->setBlog($manager->merge($this->getReference('blog-2')));
         $comment->setCreated(new \DateTime("2011-07-23 06:18:35"));
+        $comment->setApproved(false);
         $manager->persist($comment);
 
         $comment = new Comment();

@@ -17,4 +17,12 @@
             <time datetime="{{ blog.updated|date('c') }}">{{ blog.updated|date('l, j F Y') }}</time>
         </div>
     </article>
+    <section class="comments" id="comments">
+        <section class="previous-comments">
+            <h3>Comentarios</h3>
+            {% include 'BloggerBlogBundle:Comment:index.html.twig' with { 'comments': comments } %}
+        </section>
+        <h3>Añadir comentario</h3>
+        {% render(controller("BloggerBlogBundle:Comment:new", { 'blog_id': blog.id })) %}
+    </section>
 {% endblock %}

@@ -1,0 +1,13 @@
+{% for comment in comments %}
+    <article class="comment {{ cycle(['odd', 'even'], loop.index0) }}" id="comment-{{ comment.id }}">
+        <header>
+            <p><span class="highlight com_usuario">{{ comment.user }}</span></p>
+        </header>
+        <p>
+            {{ comment.comment }}
+            <span class="com_fecha"><time datetime="{{ comment.created|date('c') }}">{{ comment.created|date('l, j F Y') }}</time></span>   
+        </p>                     
+    </article>
+{% else %}
+    <p>Sin comentarios. Sea el primero en hacer uno...</p>
+{% endfor %}
