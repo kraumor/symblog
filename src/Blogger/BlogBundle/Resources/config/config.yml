@@ -1,3 +1,5 @@
 parameters:
     # Blogger contact email address - el To pq al fer reply envii aqui
     blogger_blog.emails.contact_email: contacte@email.com
+    # Blogger max latest comments
+    blogger_blog.comments.latest_comment_limit: 4    

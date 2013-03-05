@@ -82,14 +82,22 @@ class PageController extends Controller
         $em = $this->getDoctrine()
                    ->getManager();
 
+        //tags cloud
         $tags = $em->getRepository('BloggerBlogBundle:Blog')
                    ->getTags();
 
         $tagWeights = $em->getRepository('BloggerBlogBundle:Blog')
                          ->getTagWeights($tags);
+        
+        //ultimos comentarios        
+        $commentLimit   = $this->container
+                               ->getParameter('blogger_blog.comments.latest_comment_limit');
+        $latestComments = $em->getRepository('BloggerBlogBundle:Comment')
+                             ->getLatestComments($commentLimit);        
 
         return $this->render('BloggerBlogBundle:Page:sidebar.html.twig', array(
-            'tags' => $tagWeights
-        ));
+                                'latestComments'    => $latestComments
+                                ,'tags'             => $tagWeights)
+                                );
     }    
 }
