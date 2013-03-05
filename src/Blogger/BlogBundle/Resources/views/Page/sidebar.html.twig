@@ -20,14 +20,14 @@
                         <a href="{{ path('BloggerBlogBundle_blog_show', { 'id': comment.blog.id }) }}#comment-{{ comment.id }}">
                             {{ comment.blog.title }}
                         </a>
-                        [<em><time datetime="{{ comment.created|date('c') }}">{{ comment.created|date('d-m-Y h:iA') }}</time></em>]
+                        [<em><time datetime="{{ comment.created|date('c') }}">{{ comment.created|created_ago }}</time></em>]
                     </p>
                 </header>
                 <p>{{ comment.comment }}</p>
                 </p>
             </article>
         {% else %}
-            <p>There are no recent comments</p>
+            <p>Sin comentarios recientes</p>
         {% endfor %}
     </section>
 </section>
